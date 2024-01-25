@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+      routes:
+        - id: test-route
+          uri: http://localhost:3123/
+          predicates:
+            - Path=/hello/**
+
+server:
+  port: 8081
+            
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
